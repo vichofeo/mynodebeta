@@ -1,0 +1,59 @@
+<html lang="sp">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>prueba veujs</title>
+</head>
+<body>
+	<h1>hola cheee</h1>
+    <div id="idTag01">
+{{mymensaje}} {{estado}}
+<br>
+<input type="text" v-model="mymensaje">
+<input type="text" v-model="estado">
+<div v-if="estado">
+    <h2>mostrando info 2</h2>
+    {{productos}}
+    <p>
+        <ul>
+            <li v-for="i in productos">
+{{i}}
+        </li></ul>
+        <select>
+            <option v-for="j in productos">{{j}}</option>
+        </select>
+    </p>
+    <pre>
+        <code>{{$data}}</code>
+    </pre>
+</div>
+<br>
+<button @click="estado=!estado">cambio de estado</button>
+<button @click="cambiarMensaje()">camb iar mensaje</button>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+    <script>
+       var vue= new Vue({
+            el:"#idTag01",
+            data: {
+                mymensaje:"holas des Veujs",
+                estado: true,
+                productos:[
+                    "latpopss","mousees", "mesass", "teclasdos"
+                ]
+
+            },
+            methods:{
+                cambiarMensaje(){
+                    this.mymensaje = "he cambiado al hacer clic"
+                }
+            },
+            created(){},
+            mounted(){}
+        })
+    </script>
+</body>
+</html>
